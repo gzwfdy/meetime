@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.asvcloud.meetime.modules.system.dao.User_Ext_Dao">
+	
+
+	
+    <sql id="userExtColumns">
+    	a.user_id AS id,
+    a.age AS age,
+    a.gender AS gender,
+    a.country AS country,
+    a.province AS province,
+    a.city AS city,
+    a.address AS address,
+    a.about AS about
+
+
+    </sql>
+    
+
+	<!-- 根据编号获得用户扩展信息 -->
+	<select id="get" resultType="User_Ext">
+		SELECT
+			<include refid="userExtColumns"/>
+		FROM t_user_ext a
+
+		WHERE a.user_id = #{id}
+	</select>
+	
+
+	
+</mapper>
